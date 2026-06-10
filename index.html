@@ -19,7 +19,6 @@
     .nav-links a { font-size: 14px; color: #7a7a7a; text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: #c084a0; }
 
-    /* HERO */
     .hero {
       display: flex; flex-direction: column; align-items: center;
       text-align: center; padding: 4rem 2rem 3rem;
@@ -34,10 +33,7 @@
       border: 3px solid #fff; overflow: hidden;
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: none; }
-    .avatar-hint {
-      font-size: 11px; color: #c084a0; margin-top: 0.4rem;
-      font-style: italic;
-    }
+    .avatar-hint { font-size: 11px; color: #c084a0; margin-top: 0.4rem; font-style: italic; }
     .hero h1 { font-size: 32px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.4rem; }
     .hero .job-title { font-size: 16px; color: #c084a0; font-weight: 500; margin-bottom: 1rem; }
     .hero .tagline { font-size: 15px; color: #6a6a6a; max-width: 520px; line-height: 1.8; margin-bottom: 1.8rem; }
@@ -63,40 +59,59 @@
     }
     .section-title { font-size: 24px; font-weight: 600; color: #3a3a3a; margin-bottom: 1.5rem; }
 
-    /* PERSÖNLICHKEIT */
-    .personality-intro {
-      font-size: 15px; color: #5a5a5a; line-height: 1.9; max-width: 680px;
-      margin-bottom: 2rem;
-    }
+    .personality-intro { font-size: 15px; color: #5a5a5a; line-height: 1.9; max-width: 680px; margin-bottom: 2rem; }
     .personality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
-    .p-card {
-      background: #fff; border-radius: 16px; padding: 1.5rem;
-      border: 1px solid #f0d8e8;
-    }
+    .p-card { background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid #f0d8e8; }
     .p-card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
-    .p-icon {
-      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 22px;
-    }
+    .p-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; }
     .p-card h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; }
     .p-card p { font-size: 13px; color: #7a7a7a; line-height: 1.7; }
 
-    /* FOTO-GALERIE */
+    /* GALLERY SECTION */
     .gallery-bg { background: #f4eef8; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .gallery-item {
-      border-radius: 14px; overflow: hidden;
-      background: #fff; border: 1px solid #e0d0ec;
-      aspect-ratio: 4/3;
+    .gallery-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 1.2rem; align-items: start; }
+
+    /* SLIDESHOW */
+    .slideshow-wrap { border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid #e0d0ec; }
+    .slideshow { position: relative; aspect-ratio: 4/3; background: #f0e8f8; overflow: hidden; }
+    .slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: #b090c0; font-size: 13px; text-align: center; padding: 1rem; gap: 0.5rem;
+      opacity: 0; transition: opacity 0.6s ease;
+      color: #b090c0; font-size: 13px; text-align: center; gap: 0.5rem;
     }
-    .gallery-item .placeholder-icon { font-size: 28px; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: none; }
-    .gallery-caption {
-      font-size: 12px; color: #9a7aaa; padding: 0.5rem 0.8rem;
-      font-style: italic; text-align: center;
+    .slide.active { opacity: 1; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .slide .ph-icon { font-size: 36px; }
+    .slide-controls {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.8rem 1rem; background: #fff;
     }
+    .slide-btn {
+      background: #f4eef8; border: none; border-radius: 50%;
+      width: 32px; height: 32px; cursor: pointer; font-size: 16px;
+      color: #9a6aaa; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .slide-btn:hover { background: #e8d8f8; }
+    .slide-dots { display: flex; gap: 0.4rem; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #d0b8e8; cursor: pointer; transition: background 0.2s;
+    }
+    .dot.active { background: #c084a0; }
+    .slide-caption { font-size: 12px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0 1rem 0.8rem; }
+
+    /* TEAMEVENT */
+    .team-wrap { border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid #e0d0ec; }
+    .team-img {
+      aspect-ratio: 3/4; background: #e8f0fd;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #7090c0; font-size: 13px; text-align: center; gap: 0.5rem; overflow: hidden;
+    }
+    .team-img img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .team-img .ph-icon { font-size: 36px; }
+    .team-caption { font-size: 12px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.8rem; }
 
     /* SKILLS */
     .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
@@ -107,40 +122,26 @@
     .tag-mint   { background: #dff4ee; color: #2d8a6a; }
     .tag-peach  { background: #fdeee4; color: #c07040; }
 
-    /* WERTE */
     .values-bg { background: linear-gradient(160deg, #fde8f0 0%, #e8f0fd 100%); }
     .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .value-card {
-      background: #fff; border-radius: 14px; padding: 1.2rem;
-      border: 1px solid #e8d8f0; text-align: center;
-    }
+    .value-card { background: #fff; border-radius: 14px; padding: 1.2rem; border: 1px solid #e8d8f0; text-align: center; }
     .value-card .val-icon { font-size: 28px; margin-bottom: 0.6rem; }
     .value-card h3 { font-size: 14px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.3rem; }
     .value-card p { font-size: 12px; color: #8a8a8a; line-height: 1.5; }
 
-    /* KONTAKT */
-    .contact-box {
-      background: #fff; border-radius: 16px; padding: 2.5rem;
-      border: 1px solid #e0d0ec; max-width: 500px; margin: 0 auto; text-align: center;
-    }
+    .contact-box { background: #fff; border-radius: 16px; padding: 2.5rem; border: 1px solid #e0d0ec; max-width: 500px; margin: 0 auto; text-align: center; }
     .contact-box p { font-size: 15px; color: #6a6a6a; margin-bottom: 1.4rem; line-height: 1.7; }
     .social-row { display: flex; justify-content: center; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
-    .social-btn {
-      padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 13px;
-      border: 1px solid #d0c0e0; color: #7a5a90; background: transparent;
-      text-decoration: none; transition: background 0.2s; display: inline-block;
-    }
+    .social-btn { padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 13px; border: 1px solid #d0c0e0; color: #7a5a90; background: transparent; text-decoration: none; transition: background 0.2s; display: inline-block; }
     .social-btn:hover { background: #f4eef8; }
 
-    footer {
-      text-align: center; padding: 1.5rem; font-size: 12px; color: #aaa;
-      border-top: 1px solid #f0d8cc; background: #fff8f4;
-    }
+    footer { text-align: center; padding: 1.5rem; font-size: 12px; color: #aaa; border-top: 1px solid #f0d8cc; background: #fff8f4; }
 
     @media (max-width: 600px) {
       nav { padding: 1rem 1.2rem; }
       section { padding: 2rem 1.2rem; }
-      .personality-grid, .gallery-grid, .values-grid { grid-template-columns: 1fr; }
+      .personality-grid, .values-grid { grid-template-columns: 1fr; }
+      .gallery-layout { grid-template-columns: 1fr; }
       .hero h1 { font-size: 24px; }
     }
   </style>
@@ -157,11 +158,10 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="avatar-wrap">
       <div class="avatar">
-        <!-- Profilbild: <img src="dein-foto.jpg" alt="Dein Name" style="display:block;"> einfügen -->
+        <!-- Profilfoto: ersetze "JJ" durch <img src="foto.jpg" alt="Jessica Juhnke" style="display:block;"> -->
         JJ
       </div>
       <p class="avatar-hint">← hier dein Profilfoto einfügen</p>
@@ -178,7 +178,6 @@
     </div>
   </div>
 
-  <!-- PERSÖNLICHKEIT -->
   <section id="personality">
     <p class="section-label">Wer ich bin</p>
     <p class="section-title">Meine Persönlichkeit</p>
@@ -219,37 +218,56 @@
     </div>
   </section>
 
-  <!-- FOTO-GALERIE -->
+  <!-- EINBLICKE -->
   <section id="gallery" class="gallery-bg">
     <p class="section-label">Einblicke</p>
     <p class="section-title">Meine Welt in Bildern</p>
-    <div class="gallery-grid">
-      <div>
-        <div class="gallery-item">
-          <!-- Bild einfügen: <img src="bild1.jpg" alt="Beschreibung" style="display:block;"> -->
-          <span class="placeholder-icon">🌍</span>
-          <span>Bild einfügen<br><small>z.B. Reisefoto</small></span>
+    <div class="gallery-layout">
+
+      <!-- SLIDESHOW REISEFOTOS -->
+      <div class="slideshow-wrap">
+        <div class="slideshow">
+          <div class="slide active">
+            <!-- Reisefoto 1: ersetze den Inhalt durch <img src="reise1.jpg" alt="Reise 1" style="display:block;"> -->
+            <span class="ph-icon">✈️</span>
+            <span>reise1.jpg einfügen</span>
+          </div>
+          <div class="slide">
+            <!-- Reisefoto 2: ersetze den Inhalt durch <img src="reise2.jpg" alt="Reise 2" style="display:block;"> -->
+            <span class="ph-icon">🌅</span>
+            <span>reise2.jpg einfügen</span>
+          </div>
+          <div class="slide">
+            <!-- Reisefoto 3: ersetze den Inhalt durch <img src="reise3.jpg" alt="Reise 3" style="display:block;"> -->
+            <span class="ph-icon">🗺️</span>
+            <span>reise3.jpg einfügen</span>
+          </div>
         </div>
-        <p class="gallery-caption">Deine Bildunterschrift hier</p>
-      </div>
-      <div>
-        <div class="gallery-item">
-          <span class="placeholder-icon">🎨</span>
-          <span>Bild einfügen<br><small>z.B. Kreativprojekt</small></span>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="changeSlide(-1)">‹</button>
+          <div class="slide-dots">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+          </div>
+          <button class="slide-btn" onclick="changeSlide(1)">›</button>
         </div>
-        <p class="gallery-caption">Deine Bildunterschrift hier</p>
+        <p class="slide-caption">Unterwegs in der Welt 🌍</p>
       </div>
-      <div>
-        <div class="gallery-item">
-          <span class="placeholder-icon">🤝</span>
-          <span>Bild einfügen<br><small>z.B. Teamevent</small></span>
+
+      <!-- TEAMEVENT -->
+      <div class="team-wrap">
+        <div class="team-img">
+          <!-- Teamevent: ersetze den Inhalt durch <img src="team.jpg" alt="Teamevent" style="display:block;"> -->
+          <span class="ph-icon">🤝</span>
+          <span style="font-size:13px;">team.jpg einfügen</span>
         </div>
-        <p class="gallery-caption">Deine Bildunterschrift hier</p>
+        <p class="team-caption">Gemeinsam mehr erreichen 💪</p>
       </div>
+
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <p class="section-label">Was ich kann</p>
     <p class="section-title">Meine Skills</p>
@@ -267,7 +285,6 @@
     </div>
   </section>
 
-  <!-- WERTE -->
   <section class="values-bg">
     <p class="section-label">Was mich antreibt</p>
     <p class="section-title">Meine Werte</p>
@@ -290,7 +307,6 @@
     </div>
   </section>
 
-  <!-- KONTAKT -->
   <section id="contact" style="background: linear-gradient(135deg, #fde8f0 0%, #e8f0fd 100%);">
     <p class="section-label">Schreib mir</p>
     <p class="section-title" style="text-align:center;">Kontakt</p>
@@ -306,6 +322,25 @@
   </section>
 
   <footer>© 2026 Jessica Juhnke · Alle Rechte vorbehalten</footer>
+
+  <script>
+    let cur = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(n) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+
+    function changeSlide(dir) { goToSlide(cur + dir); }
+
+    // Auto-slide every 4 seconds
+    setInterval(() => changeSlide(1), 4000);
+  </script>
 
 </body>
 </html>
