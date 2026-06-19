@@ -222,7 +222,7 @@
         <div class="slideshow">
           <div class="slide active">
             <!-- Reisefoto 1: ersetze Inhalt durch <img src="reise1.jpg" alt="Reise 1"> -->
-            <img src="reise1.jpg" alt="Reise 1">
+           <img src="reise1.jpg" alt="Reise 1">
           </div>
           <div class="slide">
             <!-- Reisefoto 2: ersetze Inhalt durch <img src="reise2.jpg" alt="Reise 2"> -->
@@ -248,6 +248,37 @@
           <span>team.jpg einfügen</span>
         </div>
         <p class="team-caption">Gemeinsam mehr erreichen 💪</p>
+      </div>
+
+      <!-- SLIDESHOW UNIPROJEKTE -->
+      <div class="slideshow-wrap">
+        <div class="slideshow" id="uni-slideshow">
+          <div class="slide active">
+            <!-- Uniprojekt 1: ersetze Inhalt durch <img src="uni1.jpg" alt="Uniprojekt 1"> -->
+            <span class="ph-icon">📚</span>
+            <span>uni1.jpg einfügen</span>
+          </div>
+          <div class="slide">
+            <!-- Uniprojekt 2: ersetze Inhalt durch <img src="uni2.jpg" alt="Uniprojekt 2"> -->
+            <span class="ph-icon">🎓</span>
+            <span>uni2.jpg einfügen</span>
+          </div>
+          <div class="slide">
+            <!-- Uniprojekt 3: ersetze Inhalt durch <img src="uni3.jpg" alt="Uniprojekt 3"> -->
+            <span class="ph-icon">📝</span>
+            <span>uni3.jpg einfügen</span>
+          </div>
+        </div>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="changeUniSlide(-1)">‹</button>
+          <div class="slide-dots" id="uni-dots">
+            <div class="dot active" onclick="goToUniSlide(0)"></div>
+            <div class="dot" onclick="goToUniSlide(1)"></div>
+            <div class="dot" onclick="goToUniSlide(2)"></div>
+          </div>
+          <button class="slide-btn" onclick="changeUniSlide(1)">›</button>
+        </div>
+        <p class="slide-caption">Uniprojekte 🎓</p>
       </div>
 
     </div>
@@ -308,9 +339,10 @@
   <footer>© 2026 Jessica Juhnke · Alle Rechte vorbehalten</footer>
 
   <script>
+    // Reise-Slideshow
     let cur = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
+    const slides = document.querySelectorAll('.slideshow:not(#uni-slideshow) .slide');
+    const dots = document.querySelectorAll('.slide-dots:not(#uni-dots) .dot');
     function goToSlide(n) {
       slides[cur].classList.remove('active');
       dots[cur].classList.remove('active');
@@ -320,6 +352,20 @@
     }
     function changeSlide(dir) { goToSlide(cur + dir); }
     setInterval(() => changeSlide(1), 4000);
+
+    // Uni-Slideshow
+    let curUni = 0;
+    const uniSlides = document.querySelectorAll('#uni-slideshow .slide');
+    const uniDots = document.querySelectorAll('#uni-dots .dot');
+    function goToUniSlide(n) {
+      uniSlides[curUni].classList.remove('active');
+      uniDots[curUni].classList.remove('active');
+      curUni = (n + uniSlides.length) % uniSlides.length;
+      uniSlides[curUni].classList.add('active');
+      uniDots[curUni].classList.add('active');
+    }
+    function changeUniSlide(dir) { goToUniSlide(curUni + dir); }
+    setInterval(() => changeUniSlide(1), 5000);
   </script>
 
 </body>
