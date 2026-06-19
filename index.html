@@ -109,7 +109,7 @@
     .team-caption { font-size: 11px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.7rem; }
 
     /* SPEZIALISIERUNGEN - Flip Cards */
-    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; }
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
     .spec-flip {
       width: 100%; aspect-ratio: 1/1; perspective: 1000px; cursor: pointer;
     }
@@ -145,10 +145,11 @@
       60% { transform: rotate(-6deg); }
       80% { transform: rotate(4deg); }
     }
-    .spec-icon-hr { animation: grow-up 2.2s ease-in-out infinite; transform-origin: bottom center; }
-    @keyframes grow-up {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15) translateY(-3px); }
+    .spec-icon-hr { animation: compass-spin 3s ease-in-out infinite; }
+    @keyframes compass-spin {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      75% { transform: rotate(-15deg); }
     }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
@@ -252,14 +253,13 @@
   <section style="background: #fff8f4;">
     <p class="section-label">Mein Studienfokus</p>
     <p class="section-title">Meine Spezialisierungen</p>
-    <p style="font-size:13px; color:#9a8a8a; margin-bottom:1.5rem; font-style:italic;">Klick auf ein Icon, um mehr zu erfahren ✨</p>
+    <p style="font-size:13px; color:#9a8a8a; margin-bottom:1.5rem; font-style:italic; text-align:center;">Klick auf ein Icon, um mehr zu erfahren ✨</p>
     <div class="spec-grid">
 
       <div class="spec-flip" onclick="this.classList.toggle('flipped')">
         <div class="spec-flip-inner">
           <div class="spec-face spec-front" style="background:#fde8f0;">
             <div class="spec-icon spec-icon-marketing">📣</div>
-            <h3>Marketing</h3>
             <p class="spec-hint">Klick mich!</p>
           </div>
           <div class="spec-face spec-back">
@@ -272,8 +272,7 @@
       <div class="spec-flip" onclick="this.classList.toggle('flipped')">
         <div class="spec-flip-inner">
           <div class="spec-face spec-front" style="background:#e8f0fd;">
-            <div class="spec-icon spec-icon-hr">🌱</div>
-            <h3>Personalmanagement</h3>
+            <div class="spec-icon spec-icon-hr">🧭</div>
             <p class="spec-hint">Klick mich!</p>
           </div>
           <div class="spec-face spec-back">
