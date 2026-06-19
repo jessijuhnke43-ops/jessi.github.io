@@ -108,7 +108,32 @@
     .team-img .ph-icon { font-size: 20px; }
     .team-caption { font-size: 11px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.7rem; }
 
-    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    /* SPEZIALISIERUNGEN */
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .spec-card { background: #fff; border-radius: 16px; padding: 1.8rem; border: 1px solid #f0d8e8; text-align: center; }
+    .spec-icon-wrap {
+      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center; font-size: 28px;
+    }
+    .spec-card h3 { font-size: 16px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.6rem; }
+    .spec-card p { font-size: 14px; color: #6a6a6a; line-height: 1.7; text-align: left; }
+
+    /* Marketing: Megafon wackelt leicht */
+    .spec-icon-marketing { background: #fde8f0; animation: wiggle 2.4s ease-in-out infinite; }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-12deg); }
+      40% { transform: rotate(10deg); }
+      60% { transform: rotate(-6deg); }
+      80% { transform: rotate(4deg); }
+    }
+
+    /* Personal: Hände pulsieren sanft */
+    .spec-icon-hr { background: #e8f0fd; animation: pulse-grow 2s ease-in-out infinite; }
+    @keyframes pulse-grow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
     .tag-pink   { background: #fde8f0; color: #c06090; }
@@ -211,12 +236,18 @@
   <section style="background: #fff8f4;">
     <p class="section-label">Mein Studienfokus</p>
     <p class="section-title">Meine Spezialisierungen</p>
-    <p class="personality-intro">
-      In meiner Spezialisierung Marketing beschäftige ich mich mit der Entwicklung kreativer Kampagnen und lerne, wie Marken durch durchdachte Kommunikation und Storytelling lebendig werden.
-    </p>
-    <p class="personality-intro">
-      Im Bereich Personalmanagement vertiefe ich mein Verständnis dafür, wie man Teams stärkt und eine positive Zusammenarbeit fördert – zum Beispiel durch wertschätzende Kommunikation und Konfliktlösung.
-    </p>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-icon-wrap spec-icon-marketing">📣</div>
+        <h3>Marketing</h3>
+        <p>In meiner Spezialisierung Marketing beschäftige ich mich mit der Entwicklung kreativer Kampagnen und lerne, wie Marken durch durchdachte Kommunikation und Storytelling lebendig werden.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-icon-wrap spec-icon-hr">🤝</div>
+        <h3>Personalmanagement</h3>
+        <p>Im Bereich Personalmanagement vertiefe ich mein Verständnis dafür, wie man Teams stärkt und eine positive Zusammenarbeit fördert – zum Beispiel durch wertschätzende Kommunikation und Konfliktlösung.</p>
+      </div>
+    </div>
   </section>
 
   <!-- EINBLICKE -->
