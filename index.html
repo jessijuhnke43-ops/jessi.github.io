@@ -128,11 +128,11 @@
       80% { transform: rotate(4deg); }
     }
 
-    /* Personal: Hände pulsieren sanft */
-    .spec-icon-hr { background: #e8f0fd; animation: pulse-grow 2s ease-in-out infinite; }
-    @keyframes pulse-grow {
+    /* Personal: Pflänzchen wächst sanft */
+    .spec-icon-hr { background: #e8f0fd; animation: grow-up 2.2s ease-in-out infinite; transform-origin: bottom center; }
+    @keyframes grow-up {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.12); }
+      50% { transform: scale(1.15) translateY(-3px); }
     }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
@@ -243,7 +243,7 @@
         <p>In meiner Spezialisierung Marketing beschäftige ich mich mit der Entwicklung kreativer Kampagnen und lerne, wie Marken durch durchdachte Kommunikation und Storytelling lebendig werden.</p>
       </div>
       <div class="spec-card">
-        <div class="spec-icon-wrap spec-icon-hr">🤝</div>
+        <div class="spec-icon-wrap spec-icon-hr">🌱</div>
         <h3>Personalmanagement</h3>
         <p>Im Bereich Personalmanagement vertiefe ich mein Verständnis dafür, wie man Teams stärkt und eine positive Zusammenarbeit fördert – zum Beispiel durch wertschätzende Kommunikation und Konfliktlösung.</p>
       </div>
