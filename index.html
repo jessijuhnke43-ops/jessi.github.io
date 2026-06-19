@@ -108,18 +108,36 @@
     .team-img .ph-icon { font-size: 20px; }
     .team-caption { font-size: 11px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.7rem; }
 
-    /* SPEZIALISIERUNGEN */
-    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .spec-card { background: #fff; border-radius: 16px; padding: 1.8rem; border: 1px solid #f0d8e8; text-align: center; }
-    .spec-icon-wrap {
-      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1rem;
-      display: flex; align-items: center; justify-content: center; font-size: 28px;
+    /* SPEZIALISIERUNGEN - Flip Cards */
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; }
+    .spec-flip {
+      width: 100%; aspect-ratio: 1/1; perspective: 1000px; cursor: pointer;
     }
-    .spec-card h3 { font-size: 16px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.6rem; }
-    .spec-card p { font-size: 14px; color: #6a6a6a; line-height: 1.7; text-align: left; }
+    .spec-flip-inner {
+      position: relative; width: 100%; height: 100%;
+      transition: transform 0.6s; transform-style: preserve-3d;
+    }
+    .spec-flip.flipped .spec-flip-inner { transform: rotateY(180deg); }
+    .spec-face {
+      position: absolute; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 20px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 1.5rem; border: 1px solid #f0d8e8;
+    }
+    .spec-front {
+      background: #fff;
+    }
+    .spec-front .spec-icon { font-size: 56px; margin-bottom: 0.8rem; }
+    .spec-front h3 { font-size: 16px; font-weight: 600; color: #3a3a3a; }
+    .spec-front .spec-hint { font-size: 11px; color: #c084a0; margin-top: 0.6rem; font-style: italic; }
+    .spec-back {
+      background: #fff; transform: rotateY(180deg);
+      text-align: left; justify-content: center;
+    }
+    .spec-back h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.6rem; text-align: center; }
+    .spec-back p { font-size: 13px; color: #6a6a6a; line-height: 1.6; }
 
-    /* Marketing: Megafon wackelt leicht */
-    .spec-icon-marketing { background: #fde8f0; animation: wiggle 2.4s ease-in-out infinite; }
+    .spec-icon-marketing { animation: wiggle 2.4s ease-in-out infinite; }
     @keyframes wiggle {
       0%, 100% { transform: rotate(0deg); }
       20% { transform: rotate(-12deg); }
@@ -127,9 +145,7 @@
       60% { transform: rotate(-6deg); }
       80% { transform: rotate(4deg); }
     }
-
-    /* Personal: Pflänzchen wächst sanft */
-    .spec-icon-hr { background: #e8f0fd; animation: grow-up 2.2s ease-in-out infinite; transform-origin: bottom center; }
+    .spec-icon-hr { animation: grow-up 2.2s ease-in-out infinite; transform-origin: bottom center; }
     @keyframes grow-up {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.15) translateY(-3px); }
@@ -236,17 +252,37 @@
   <section style="background: #fff8f4;">
     <p class="section-label">Mein Studienfokus</p>
     <p class="section-title">Meine Spezialisierungen</p>
+    <p style="font-size:13px; color:#9a8a8a; margin-bottom:1.5rem; font-style:italic;">Klick auf ein Icon, um mehr zu erfahren ✨</p>
     <div class="spec-grid">
-      <div class="spec-card">
-        <div class="spec-icon-wrap spec-icon-marketing">📣</div>
-        <h3>Marketing</h3>
-        <p>In meiner Spezialisierung Marketing beschäftige ich mich mit der Entwicklung kreativer Kampagnen und lerne, wie Marken durch durchdachte Kommunikation und Storytelling lebendig werden.</p>
+
+      <div class="spec-flip" onclick="this.classList.toggle('flipped')">
+        <div class="spec-flip-inner">
+          <div class="spec-face spec-front" style="background:#fde8f0;">
+            <div class="spec-icon spec-icon-marketing">📣</div>
+            <h3>Marketing</h3>
+            <p class="spec-hint">Klick mich!</p>
+          </div>
+          <div class="spec-face spec-back">
+            <h3>Marketing</h3>
+            <p>In meiner Spezialisierung Marketing beschäftige ich mich mit der Entwicklung kreativer Kampagnen und lerne, wie Marken durch durchdachte Kommunikation und Storytelling lebendig werden.</p>
+          </div>
+        </div>
       </div>
-      <div class="spec-card">
-        <div class="spec-icon-wrap spec-icon-hr">🌱</div>
-        <h3>Personalmanagement</h3>
-        <p>Im Bereich Personalmanagement vertiefe ich mein Verständnis dafür, wie man Teams stärkt und eine positive Zusammenarbeit fördert – zum Beispiel durch wertschätzende Kommunikation und Konfliktlösung.</p>
+
+      <div class="spec-flip" onclick="this.classList.toggle('flipped')">
+        <div class="spec-flip-inner">
+          <div class="spec-face spec-front" style="background:#e8f0fd;">
+            <div class="spec-icon spec-icon-hr">🌱</div>
+            <h3>Personalmanagement</h3>
+            <p class="spec-hint">Klick mich!</p>
+          </div>
+          <div class="spec-face spec-back">
+            <h3>Personalmanagement</h3>
+            <p>Im Bereich Personalmanagement vertiefe ich mein Verständnis dafür, wie man Teams stärkt und eine positive Zusammenarbeit fördert – zum Beispiel durch wertschätzende Kommunikation und Konfliktlösung.</p>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
