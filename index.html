@@ -66,12 +66,24 @@
     .p-card h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; }
     .p-card p { font-size: 13px; color: #7a7a7a; line-height: 1.7; }
 
-    /* GALLERY */
+    /* GALLERY - Polaroid Style */
     .gallery-bg { background: #f4eef8; }
-    .gallery-layout { display: flex; gap: 1.2rem; align-items: start; justify-content: center; flex-wrap: wrap; }
+    .gallery-layout { display: flex; gap: 2rem; align-items: start; justify-content: center; flex-wrap: wrap; }
 
-    .slideshow-wrap { border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid #e0d0ec; width: 320px; }
-    .slideshow { position: relative; width: 320px; height: 320px; background: #f0e8f8; overflow: hidden; }
+    .slideshow-wrap {
+      background: #fff;
+      padding: 12px 12px 40px 12px;
+      border-radius: 4px;
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.15), -1px -1px 6px rgba(0,0,0,0.05);
+      width: 300px;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+    .slideshow-wrap:hover { transform: rotate(0deg) scale(1.03); }
+    .slideshow-wrap:nth-child(2) { transform: rotate(2deg); }
+    .slideshow-wrap:nth-child(2):hover { transform: rotate(0deg) scale(1.03); }
+
+    .slideshow { position: relative; width: 276px; height: 276px; background: #f0e8f8; overflow: hidden; }
     .slide {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -83,19 +95,23 @@
     .slide .ph-icon { font-size: 20px; }
     .slide-controls {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0.6rem 0.8rem; background: #fff;
+      padding: 0.5rem 0.2rem 0; background: transparent;
     }
     .slide-btn {
       background: #f4eef8; border: none; border-radius: 50%;
-      width: 26px; height: 26px; cursor: pointer; font-size: 14px;
+      width: 24px; height: 24px; cursor: pointer; font-size: 13px;
       color: #9a6aaa; display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
     .slide-btn:hover { background: #e8d8f8; }
     .slide-dots { display: flex; gap: 0.35rem; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: #d0b8e8; cursor: pointer; transition: background 0.2s; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #d0b8e8; cursor: pointer; transition: background 0.2s; }
     .dot.active { background: #c084a0; }
-    .slide-caption { font-size: 11px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0 0.8rem 0.7rem; }
+    .slide-caption {
+      font-size: 13px; color: #9a7aaa; font-style: italic;
+      text-align: center; padding: 0.5rem 0 0;
+      font-family: 'Segoe UI', cursive;
+    }
 
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
