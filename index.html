@@ -66,16 +66,24 @@
     .p-card h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; }
     .p-card p { font-size: 13px; color: #7a7a7a; line-height: 1.7; }
 
-    /* GALLERY - Hover Kacheln */
+    /* GALLERY - Polaroid Style */
     .gallery-bg { background: #f4eef8; }
-    .gallery-layout { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    .gallery-layout { display: flex; gap: 2rem; align-items: start; justify-content: center; flex-wrap: wrap; }
 
     .slideshow-wrap {
-      width: 320px; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 4px 20px rgba(192,132,160,0.15);
-      position: relative; cursor: pointer;
+      background: #fff;
+      padding: 12px 12px 40px 12px;
+      border-radius: 4px;
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.15), -1px -1px 6px rgba(0,0,0,0.05);
+      width: 300px;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
     }
-    .slideshow { position: relative; width: 100%; height: 320px; background: #f0e8f8; overflow: hidden; }
+    .slideshow-wrap:hover { transform: rotate(0deg) scale(1.03); }
+    .slideshow-wrap:nth-child(2) { transform: rotate(2deg); }
+    .slideshow-wrap:nth-child(2):hover { transform: rotate(0deg) scale(1.03); }
+
+    .slideshow { position: relative; width: 276px; height: 276px; background: #f0e8f8; overflow: hidden; }
     .slide {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -83,28 +91,15 @@
       color: #b090c0; font-size: 12px; text-align: center; gap: 0.4rem;
     }
     .slide.active { opacity: 1; }
-    .slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .slideshow-wrap:hover .slide.active img { transform: scale(1.05); }
-
-    /* Hover Overlay */
-    .slide-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(192,132,160,0.92), transparent);
-      padding: 1.5rem 1rem 1rem;
-      transform: translateY(100%); transition: transform 0.35s ease;
-      text-align: center;
-    }
-    .slideshow-wrap:hover .slide-overlay { transform: translateY(0); }
-    .slide-overlay h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-    .slide-overlay p { font-size: 12px; color: rgba(255,255,255,0.85); }
-
+    .slide img { width: 100%; height: 100%; object-fit: cover; }
+    .slide .ph-icon { font-size: 20px; }
     .slide-controls {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0.6rem 0.8rem; background: #fff;
+      padding: 0.5rem 0.2rem 0; background: transparent;
     }
     .slide-btn {
       background: #f4eef8; border: none; border-radius: 50%;
-      width: 26px; height: 26px; cursor: pointer; font-size: 13px;
+      width: 24px; height: 24px; cursor: pointer; font-size: 13px;
       color: #9a6aaa; display: flex; align-items: center; justify-content: center;
       transition: background 0.2s;
     }
@@ -112,7 +107,11 @@
     .slide-dots { display: flex; gap: 0.35rem; }
     .dot { width: 6px; height: 6px; border-radius: 50%; background: #d0b8e8; cursor: pointer; transition: background 0.2s; }
     .dot.active { background: #c084a0; }
-    .slide-caption { font-size: 12px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.4rem 0.8rem 0.6rem; background: #fff; }
+    .slide-caption {
+      font-size: 13px; color: #9a7aaa; font-style: italic;
+      text-align: center; padding: 0.5rem 0 0;
+      font-family: 'Segoe UI', cursive;
+    }
 
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
@@ -149,39 +148,7 @@
       75% { transform: rotate(-15deg); }
     }
 
-    /* MODAL */
-    .modal-overlay {
-      display: none; position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-      z-index: 1000; align-items: center; justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #fff; border-radius: 20px; padding: 2.5rem;
-      max-width: 500px; width: 90%; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      animation: modal-in 0.3s ease;
-    }
-    @keyframes modal-in {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: #f4eef8; border: none; border-radius: 50%;
-      width: 32px; height: 32px; cursor: pointer;
-      font-size: 16px; color: #9a6aaa;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-close:hover { background: #e8d8f8; }
-    .modal-tag {
-      display: inline-block; padding: 0.2rem 0.8rem;
-      background: #fde8f0; color: #c084a0;
-      border-radius: 50px; font-size: 11px; font-weight: 600;
-      margin-bottom: 0.8rem; letter-spacing: 0.05em;
-    }
-    .modal h3 { font-size: 20px; font-weight: 600; color: #3a3a3a; margin-bottom: 1rem; }
-    .modal p { font-size: 14px; color: #6a6a6a; line-height: 1.8; margin-bottom: 0.8rem; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
     .tag-pink   { background: #fde8f0; color: #c06090; }
@@ -345,38 +312,29 @@
         <p class="slide-caption">Unterwegs in der Welt 🌍</p>
       </div>
 
-      <!-- TIMELINE UNIPROJEKTE -->
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-img">
+      <!-- SLIDESHOW UNIPROJEKTE -->
+      <div class="slideshow-wrap">
+        <div class="slideshow" id="uni-slideshow">
+          <div class="slide active">
             <img src="Projekt5.jpg" alt="Uniprojekt 1">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Pure&amp;Positive</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-img">
+          <div class="slide">
             <img src="Projekt4.jpg" alt="Uniprojekt 2">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Projektname</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-img">
+          <div class="slide">
             <img src="Projekt7.jpg" alt="Uniprojekt 3">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Projektname</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
         </div>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="changeUniSlide(-1)">‹</button>
+          <div class="slide-dots" id="uni-dots">
+            <div class="dot active" onclick="goToUniSlide(0)"></div>
+            <div class="dot" onclick="goToUniSlide(1)"></div>
+            <div class="dot" onclick="goToUniSlide(2)"></div>
+          </div>
+          <button class="slide-btn" onclick="changeUniSlide(1)">›</button>
+        </div>
+        <p class="slide-caption">Pure&amp;Positive 🎓</p>
       </div>
 
     </div>
