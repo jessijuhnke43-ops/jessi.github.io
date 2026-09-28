@@ -110,6 +110,7 @@
     .slide-caption {
       font-size: 13px; color: #9a7aaa; font-style: italic;
       text-align: center; padding: 0.5rem 0 0;
+      font-family: 'Segoe UI', cursive;
     }
 
     /* SPEZIALISIERUNGEN */
@@ -147,39 +148,7 @@
       75% { transform: rotate(-15deg); }
     }
 
-    /* MODAL */
-    .modal-overlay {
-      display: none; position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-      z-index: 1000; align-items: center; justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #fff; border-radius: 20px; padding: 2.5rem;
-      max-width: 500px; width: 90%; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      animation: modal-in 0.3s ease;
-    }
-    @keyframes modal-in {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: #f4eef8; border: none; border-radius: 50%;
-      width: 32px; height: 32px; cursor: pointer;
-      font-size: 16px; color: #9a6aaa;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-close:hover { background: #e8d8f8; }
-    .modal-tag {
-      display: inline-block; padding: 0.2rem 0.8rem;
-      background: #fde8f0; color: #c084a0;
-      border-radius: 50px; font-size: 11px; font-weight: 600;
-      margin-bottom: 0.8rem; letter-spacing: 0.05em;
-    }
-    .modal h3 { font-size: 20px; font-weight: 600; color: #3a3a3a; margin-bottom: 1rem; }
-    .modal p { font-size: 14px; color: #6a6a6a; line-height: 1.8; margin-bottom: 0.8rem; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
     .tag-pink   { background: #fde8f0; color: #c06090; }
@@ -343,38 +312,29 @@
         <p class="slide-caption">Unterwegs in der Welt 🌍</p>
       </div>
 
-      <!-- TIMELINE UNIPROJEKTE -->
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-img">
+      <!-- SLIDESHOW UNIPROJEKTE -->
+      <div class="slideshow-wrap">
+        <div class="slideshow" id="uni-slideshow">
+          <div class="slide active">
             <img src="Projekt5.jpg" alt="Uniprojekt 1">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Pure&amp;Positive</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-img">
+          <div class="slide">
             <img src="Projekt4.jpg" alt="Uniprojekt 2">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Projektname</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-img">
+          <div class="slide">
             <img src="Projekt7.jpg" alt="Uniprojekt 3">
           </div>
-          <div class="timeline-text">
-            <span class="timeline-tag">Uniprojekt</span>
-            <h3>Projektname</h3>
-            <p>Hier kannst du eine kurze Beschreibung deines Projekts einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?</p>
-          </div>
         </div>
+        <div class="slide-controls">
+          <button class="slide-btn" onclick="changeUniSlide(-1)">‹</button>
+          <div class="slide-dots" id="uni-dots">
+            <div class="dot active" onclick="goToUniSlide(0)"></div>
+            <div class="dot" onclick="goToUniSlide(1)"></div>
+            <div class="dot" onclick="goToUniSlide(2)"></div>
+          </div>
+          <button class="slide-btn" onclick="changeUniSlide(1)">›</button>
+        </div>
+        <p class="slide-caption">Pure&amp;Positive 🎓</p>
       </div>
 
     </div>
