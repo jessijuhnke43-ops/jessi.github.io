@@ -71,10 +71,11 @@
     .gallery-layout { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: start; }
 
     .gallery-card {
-      width: 340px; background: #fff; border-radius: 20px; overflow: hidden;
+      width: 340px; border-radius: 20px; overflow: hidden;
       box-shadow: 0 4px 20px rgba(192,132,160,0.12);
+      position: relative;
     }
-    .slideshow { position: relative; width: 100%; height: 300px; background: #f0e8f8; overflow: hidden; }
+    .slideshow { position: relative; width: 100%; height: 340px; background: #f0e8f8; overflow: hidden; }
     .slide {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -82,13 +83,43 @@
     }
     .slide.active { opacity: 1; }
     .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Label über Bild */
+    .card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(60,30,50,0.7), transparent);
+      padding: 1.5rem 1rem 0.8rem;
+    }
+    .card-tag {
+      display: inline-block; padding: 0.2rem 0.7rem;
+      background: rgba(255,255,255,0.25); color: #fff;
+      border-radius: 50px; font-size: 10px; font-weight: 600;
+      margin-bottom: 0.3rem; letter-spacing: 0.06em;
+      backdrop-filter: blur(4px);
+    }
+    .card-label h3 { font-size: 15px; font-weight: 600; color: #fff; }
+
+    /* Info Button */
+    .info-btn {
+      position: absolute; top: 0.8rem; right: 0.8rem;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.85); border: none;
+      font-size: 15px; cursor: pointer; color: #c084a0;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.2s;
+      z-index: 10;
+    }
+    .info-btn:hover { background: #fff; }
+
     .slide-controls {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0.6rem 0.8rem; background: #fff;
+      padding: 0.5rem 0.8rem; background: #fff;
     }
     .slide-btn {
       background: #f4eef8; border: none; border-radius: 50%;
-      width: 26px; height: 26px; cursor: pointer; font-size: 13px;
+      width: 24px; height: 24px; cursor: pointer; font-size: 12px;
       color: #9a6aaa; display: flex; align-items: center; justify-content: center;
     }
     .slide-btn:hover { background: #e8d8f8; }
@@ -96,28 +127,39 @@
     .dot { width: 6px; height: 6px; border-radius: 50%; background: #d0b8e8; cursor: pointer; }
     .dot.active { background: #c084a0; }
 
-    .card-body { padding: 1rem 1.2rem; }
-    .card-tag {
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(0,0,0,0.5);
+      z-index: 1000; align-items: center; justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #fff; border-radius: 20px; padding: 2.5rem;
+      max-width: 480px; width: 90%; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      animation: modal-in 0.3s ease;
+    }
+    @keyframes modal-in {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: #f4eef8; border: none; border-radius: 50%;
+      width: 32px; height: 32px; cursor: pointer;
+      font-size: 16px; color: #9a6aaa;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: #e8d8f8; }
+    .modal-tag {
       display: inline-block; padding: 0.2rem 0.8rem;
       background: #fde8f0; color: #c084a0;
       border-radius: 50px; font-size: 11px; font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
     }
-    .card-body h3 { font-size: 16px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.3rem; }
-
-    /* Ausklappbare Beschreibung */
-    .card-toggle {
-      background: none; border: none; color: #c084a0; font-size: 13px;
-      cursor: pointer; padding: 0; margin-top: 0.4rem;
-      display: flex; align-items: center; gap: 0.3rem;
-    }
-    .card-toggle:hover { text-decoration: underline; }
-    .card-desc {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      font-size: 13px; color: #7a7a7a; line-height: 1.7;
-    }
-    .card-desc.open { max-height: 300px; padding-top: 0.6rem; }
+    .modal h3 { font-size: 20px; font-weight: 600; color: #3a3a3a; margin-bottom: 1rem; }
+    .modal p { font-size: 14px; color: #6a6a6a; line-height: 1.8; margin-bottom: 0.8rem; }
 
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
@@ -299,6 +341,10 @@
           <div class="slide active"><img src="reise4.jpg.jpg" alt="Reise 1"></div>
           <div class="slide"><img src="reise5.jpg.jpg" alt="Reise 2"></div>
           <div class="slide"><img src="reise2.jpg" alt="Reise 3"></div>
+          <div class="card-label">
+            <span class="card-tag">Reisen</span>
+            <h3>Unterwegs in der Welt 🌍</h3>
+          </div>
         </div>
         <div class="slide-controls">
           <button class="slide-btn" onclick="changeSlide(-1)">‹</button>
@@ -309,10 +355,6 @@
           </div>
           <button class="slide-btn" onclick="changeSlide(1)">›</button>
         </div>
-        <div class="card-body">
-          <span class="card-tag">Reisen</span>
-          <h3>Unterwegs in der Welt 🌍</h3>
-        </div>
       </div>
 
       <!-- UNIPROJEKTE KARTE -->
@@ -321,23 +363,32 @@
           <div class="slide active"><img src="Projekt5.jpg" alt="Projekt 1"></div>
           <div class="slide"><img src="Projekt4.jpg" alt="Projekt 2"></div>
           <div class="slide"><img src="Projekt7.jpg" alt="Projekt 3"></div>
+          <div class="card-label">
+            <span class="card-tag">Uniprojekt</span>
+            <h3>Pure&amp;Positive 🎓</h3>
+          </div>
         </div>
+        <button class="info-btn" onclick="document.getElementById('uni-modal').classList.add('active')">ℹ️</button>
         <div class="slide-controls">
-          <button class="slide-btn" onclick="event.stopPropagation(); changeUniSlide(-1)">‹</button>
+          <button class="slide-btn" onclick="changeUniSlide(-1)">‹</button>
           <div class="slide-dots" id="uni-dots">
-            <div class="dot active" onclick="event.stopPropagation(); goToUniSlide(0)"></div>
-            <div class="dot" onclick="event.stopPropagation(); goToUniSlide(1)"></div>
-            <div class="dot" onclick="event.stopPropagation(); goToUniSlide(2)"></div>
+            <div class="dot active" onclick="goToUniSlide(0)"></div>
+            <div class="dot" onclick="goToUniSlide(1)"></div>
+            <div class="dot" onclick="goToUniSlide(2)"></div>
           </div>
-          <button class="slide-btn" onclick="event.stopPropagation(); changeUniSlide(1)">›</button>
+          <button class="slide-btn" onclick="changeUniSlide(1)">›</button>
         </div>
-        <div class="card-body">
-          <span class="card-tag">Uniprojekt</span>
-          <h3>Pure&amp;Positive 🎓</h3>
-          <button class="card-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Weniger anzeigen' : '▼ Mehr erfahren'">▼ Mehr erfahren</button>
-          <div class="card-desc">
-            Hier kannst du später deine Projektbeschreibung einfügen – was war die Aufgabe, was hast du gemacht und was hast du dabei gelernt?
-          </div>
+      </div>
+
+      <!-- MODAL -->
+      <div class="modal-overlay" id="uni-modal" onclick="this.classList.remove('active')">
+        <div class="modal" onclick="event.stopPropagation()">
+          <button class="modal-close" onclick="document.getElementById('uni-modal').classList.remove('active')">✕</button>
+          <span class="modal-tag">Uniprojekt</span>
+          <h3>Pure&amp;Positive</h3>
+          <p>Hier kommt deine Projektbeschreibung – was war die Aufgabe und das Ziel des Projekts?</p>
+          <p>Was hast du konkret gemacht und welche Rolle hattest du im Team?</p>
+          <p>Was hast du dabei gelernt und welche Skills konntest du einsetzen?</p>
         </div>
       </div>
 
