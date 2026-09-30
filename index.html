@@ -114,6 +114,38 @@
     .dot.active { background: #c084a0; }
     .slide-caption { font-size: 12px; color: #9a7aaa; font-style: italic; text-align: center; padding: 0.4rem 0.8rem 0.6rem; background: #fff; }
 
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 2rem; width: 100%; max-width: 600px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, #f4a8c4, #a8b4f4);
+    }
+    .timeline-item {
+      position: relative; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      align-items: center; margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid #f0d8e8;
+    }
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2.4rem; top: 50%;
+      transform: translateY(-50%);
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #c084a0; border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #c084a0;
+    }
+    .timeline-img { border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+    .timeline-img img { width: 100%; height: 100%; object-fit: cover; }
+    .timeline-text { padding: 0.5rem; }
+    .timeline-tag {
+      display: inline-block; padding: 0.2rem 0.8rem;
+      background: #fde8f0; color: #c084a0;
+      border-radius: 50px; font-size: 11px; font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .timeline-text h3 { font-size: 16px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.5rem; }
+    .timeline-text p { font-size: 13px; color: #7a7a7a; line-height: 1.7; }
+
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
     .spec-flip { width: 100%; aspect-ratio: 1/1; perspective: 1000px; cursor: pointer; }
@@ -149,39 +181,7 @@
       75% { transform: rotate(-15deg); }
     }
 
-    /* MODAL */
-    .modal-overlay {
-      display: none; position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-      z-index: 1000; align-items: center; justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #fff; border-radius: 20px; padding: 2.5rem;
-      max-width: 500px; width: 90%; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      animation: modal-in 0.3s ease;
-    }
-    @keyframes modal-in {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: #f4eef8; border: none; border-radius: 50%;
-      width: 32px; height: 32px; cursor: pointer;
-      font-size: 16px; color: #9a6aaa;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-close:hover { background: #e8d8f8; }
-    .modal-tag {
-      display: inline-block; padding: 0.2rem 0.8rem;
-      background: #fde8f0; color: #c084a0;
-      border-radius: 50px; font-size: 11px; font-weight: 600;
-      margin-bottom: 0.8rem; letter-spacing: 0.05em;
-    }
-    .modal h3 { font-size: 20px; font-weight: 600; color: #3a3a3a; margin-bottom: 1rem; }
-    .modal p { font-size: 14px; color: #6a6a6a; line-height: 1.8; margin-bottom: 0.8rem; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
     .tag-purple { background: #ede4f7; color: #7c4fa0; }
     .tag-pink   { background: #fde8f0; color: #c06090; }
@@ -226,7 +226,7 @@
     </div>
   </nav>
 
-  <!-- HERO – Bild links, Text rechts -->
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-img">
       <img src="reise1.jpg" alt="Jessica Juhnke">
@@ -323,14 +323,12 @@
       <!-- SLIDESHOW REISEFOTOS -->
       <div class="slideshow-wrap">
         <div class="slideshow">
-          <div class="slide active">
-            <img src="reise4.jpg.jpg" alt="Reise 1">
-          </div>
-          <div class="slide">
-            <img src="reise5.jpg.jpg" alt="Reise 2">
-          </div>
-          <div class="slide">
-            <img src="reise2.jpg" alt="Reise 3">
+          <div class="slide active"><img src="reise4.jpg.jpg" alt="Reise 1"></div>
+          <div class="slide"><img src="reise5.jpg.jpg" alt="Reise 2"></div>
+          <div class="slide"><img src="reise2.jpg" alt="Reise 3"></div>
+          <div class="slide-overlay">
+            <h3>Unterwegs in der Welt 🌍</h3>
+            <p>Reisen als Lebenshaltung</p>
           </div>
         </div>
         <div class="slide-controls">
@@ -348,9 +346,7 @@
       <!-- TIMELINE UNIPROJEKTE -->
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-img">
-            <img src="Projekt5.jpg" alt="Uniprojekt 1">
-          </div>
+          <div class="timeline-img"><img src="Projekt5.jpg" alt="Uniprojekt 1"></div>
           <div class="timeline-text">
             <span class="timeline-tag">Uniprojekt</span>
             <h3>Pure&amp;Positive</h3>
@@ -358,9 +354,7 @@
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-img">
-            <img src="Projekt4.jpg" alt="Uniprojekt 2">
-          </div>
+          <div class="timeline-img"><img src="Projekt4.jpg" alt="Uniprojekt 2"></div>
           <div class="timeline-text">
             <span class="timeline-tag">Uniprojekt</span>
             <h3>Projektname</h3>
@@ -368,9 +362,7 @@
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-img">
-            <img src="Projekt7.jpg" alt="Uniprojekt 3">
-          </div>
+          <div class="timeline-img"><img src="Projekt7.jpg" alt="Uniprojekt 3"></div>
           <div class="timeline-text">
             <span class="timeline-tag">Uniprojekt</span>
             <h3>Projektname</h3>
@@ -433,8 +425,8 @@
 
   <script>
     let cur = 0;
-    const slides = document.querySelectorAll('.slideshow:not(#uni-slideshow) .slide');
-    const dots = document.querySelectorAll('.slide-dots:not(#uni-dots) .dot');
+    const slides = document.querySelectorAll('.slideshow .slide');
+    const dots = document.querySelectorAll('.slide-dots .dot');
     function goToSlide(n) {
       slides[cur].classList.remove('active');
       dots[cur].classList.remove('active');
@@ -444,19 +436,6 @@
     }
     function changeSlide(dir) { goToSlide(cur + dir); }
     setInterval(() => changeSlide(1), 4000);
-
-    let curUni = 0;
-    const uniSlides = document.querySelectorAll('#uni-slideshow .slide');
-    const uniDots = document.querySelectorAll('#uni-dots .dot');
-    function goToUniSlide(n) {
-      uniSlides[curUni].classList.remove('active');
-      uniDots[curUni].classList.remove('active');
-      curUni = (n + uniSlides.length) % uniSlides.length;
-      uniSlides[curUni].classList.add('active');
-      uniDots[curUni].classList.add('active');
-    }
-    function changeUniSlide(dir) { goToUniSlide(curUni + dir); }
-    setInterval(() => changeUniSlide(1), 5000);
   </script>
 
 </body>
