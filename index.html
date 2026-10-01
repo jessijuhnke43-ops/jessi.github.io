@@ -156,8 +156,25 @@
       border-radius: 50px; font-size: 11px; font-weight: 600;
       margin-bottom: 0.8rem;
     }
-    .modal h3 { font-size: 20px; font-weight: 600; color: #3a3a3a; margin-bottom: 1rem; }
-    .modal p { font-size: 14px; color: #6a6a6a; line-height: 1.8; margin-bottom: 0.8rem; }
+    /* MODAL SLIDES */
+    .modal-slides { position: relative; }
+    .modal-slide { display: none; }
+    .modal-slide.active { display: block; }
+    .modal-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 1.2rem;
+    }
+    .modal-nav-btn {
+      background: #f4eef8; border: none; border-radius: 50px;
+      padding: 0.4rem 1rem; cursor: pointer; color: #c084a0;
+      font-size: 13px; font-weight: 500;
+      transition: background 0.2s;
+    }
+    .modal-nav-btn:hover { background: #e8d8f8; }
+    .modal-nav-btn:disabled { opacity: 0.3; cursor: default; }
+    .modal-dots { display: flex; gap: 0.4rem; }
+    .modal-dot { width: 7px; height: 7px; border-radius: 50%; background: #d0b8e8; }
+    .modal-dot.active { background: #c084a0; }
 
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
@@ -383,11 +400,25 @@
         <div class="modal" onclick="event.stopPropagation()">
           <button class="modal-close" onclick="document.getElementById('uni-modal').classList.remove('active')">✕</button>
           <span class="modal-tag">Uniprojekt</span>
-          <h3>Pure&amp;Positive</h3>
-          <img src="Projekt6.jpg" alt="Pure&Positive Plakat" style="width:100%; border-radius:12px; margin-bottom:1.2rem; object-fit:contain; max-height:300px;">
-          <p>In unserer Vertiefung Marketing haben wir für das Unternehmen Pure&amp;Positive ein Werbeplakat für ein imaginäres Festival erstellt. Gemeinsam in Fünfer-Gruppen hatten wir den Auftrag mithilfe von Canva und eigenen Ideen ein ansprechendes Plakat zu erstellen.</p>
-          <p>Die Gründerinnen hatten uns einen Einblick in ihr Unternehmen gegeben und uns mitgeteilt wie das Festival aufgebaut ist. Dadurch konnten wir ein Plakat erstellen, was zum Unternehmen gepasst hat.</p>
-          <p>Schlussendlich mussten wir unsere Leistung vortragen und erhielten positive Rezensionen von den Gründerinnen.</p>
+          <h3 style="font-size:20px; font-weight:600; color:#3a3a3a; margin-bottom:1rem;">Pure&amp;Positive</h3>
+          <div class="modal-slides">
+            <div class="modal-slide active">
+              <p style="font-size:14px; color:#6a6a6a; line-height:1.8; margin-bottom:0.8rem;">In unserer Vertiefung Marketing haben wir für das Unternehmen Pure&amp;Positive ein Werbeplakat für ein imaginäres Festival erstellt. Gemeinsam in Fünfer-Gruppen hatten wir den Auftrag mithilfe von Canva und eigenen Ideen ein ansprechendes Plakat zu erstellen.</p>
+              <p style="font-size:14px; color:#6a6a6a; line-height:1.8; margin-bottom:0.8rem;">Die Gründerinnen hatten uns einen Einblick in ihr Unternehmen gegeben und uns mitgeteilt wie das Festival aufgebaut ist. Dadurch konnten wir ein Plakat erstellen, was zum Unternehmen gepasst hat.</p>
+              <p style="font-size:14px; color:#6a6a6a; line-height:1.8;">Schlussendlich mussten wir unsere Leistung vortragen und erhielten positive Rezensionen von den Gründerinnen.</p>
+            </div>
+            <div class="modal-slide">
+              <img src="Projekt6.jpg" alt="Pure&Positive Plakat" style="width:100%; border-radius:12px; object-fit:contain; max-height:340px;">
+            </div>
+          </div>
+          <div class="modal-nav">
+            <button class="modal-nav-btn" id="modal-prev" onclick="changeModalSlide(-1)" disabled>← Zurück</button>
+            <div class="modal-dots">
+              <div class="modal-dot active" id="mdot-0"></div>
+              <div class="modal-dot" id="mdot-1"></div>
+            </div>
+            <button class="modal-nav-btn" id="modal-next" onclick="changeModalSlide(1)">Weiter →</button>
+          </div>
         </div>
       </div>
 
