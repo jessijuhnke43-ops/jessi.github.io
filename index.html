@@ -396,9 +396,9 @@
       </div>
 
       <!-- MODAL -->
-      <div class="modal-overlay" id="uni-modal" onclick="this.classList.remove('active')">
+      <div class="modal-overlay" id="uni-modal" onclick="closeModal()">
         <div class="modal" onclick="event.stopPropagation()">
-          <button class="modal-close" onclick="document.getElementById('uni-modal').classList.remove('active')">✕</button>
+          <button class="modal-close" onclick="closeModal()">✕</button>
           <span class="modal-tag">Uniprojekt</span>
           <h3 style="font-size:20px; font-weight:600; color:#3a3a3a; margin-bottom:1rem;">Pure&amp;Positive</h3>
           <div class="modal-slides">
