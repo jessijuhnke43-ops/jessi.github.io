@@ -19,177 +19,40 @@
     .nav-links a { font-size: 14px; color: #7a7a7a; text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: #c084a0; }
 
-    /* HERO – Bild links, Text rechts */
     .hero {
       display: flex; flex-direction: row; align-items: center;
       gap: 3rem; padding: 4rem 2.5rem;
       background: linear-gradient(160deg, #fde8f0 0%, #e8f0fd 50%, #e8fdf0 100%);
     }
-    .hero-img {
-      width: 280px; height: 360px; flex-shrink: 0;
-      border-radius: 16px; overflow: hidden;
-      border: 3px solid #fff;
-      box-shadow: 0 8px 24px rgba(192,132,160,0.15);
-    }
+    .hero-img { width: 280px; height: 360px; flex-shrink: 0; border-radius: 16px; overflow: hidden; border: 3px solid #fff; box-shadow: 0 8px 24px rgba(192,132,160,0.15); }
     .hero-img img { width: 100%; height: 100%; object-fit: cover; }
     .hero-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
     .hero-text h1 { font-size: 36px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.4rem; }
     .hero-text .job-title { font-size: 16px; color: #c084a0; font-weight: 500; margin-bottom: 1rem; }
     .hero-text .tagline { font-size: 15px; color: #6a6a6a; max-width: 480px; line-height: 1.8; margin-bottom: 1.8rem; }
     .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn-primary {
-      padding: 0.6rem 1.6rem; border-radius: 50px;
-      background: #c084a0; color: #fff; border: none;
-      font-size: 14px; cursor: pointer; text-decoration: none; transition: opacity 0.2s;
-    }
+    .btn-primary { padding: 0.6rem 1.6rem; border-radius: 50px; background: #c084a0; color: #fff; border: none; font-size: 14px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
     .btn-primary:hover { opacity: 0.85; }
-    .btn-outline {
-      padding: 0.6rem 1.6rem; border-radius: 50px;
-      background: transparent; color: #c084a0;
-      border: 1.5px solid #c084a0; font-size: 14px;
-      text-decoration: none; transition: background 0.2s;
-    }
+    .btn-outline { padding: 0.6rem 1.6rem; border-radius: 50px; background: transparent; color: #c084a0; border: 1.5px solid #c084a0; font-size: 14px; text-decoration: none; transition: background 0.2s; }
     .btn-outline:hover { background: #fde8f0; }
 
     section { padding: 3rem 2.5rem; }
-    .section-label {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #c084a0; margin-bottom: 0.4rem;
-    }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #c084a0; margin-bottom: 0.4rem; }
     .section-title { font-size: 24px; font-weight: 600; color: #3a3a3a; margin-bottom: 1.5rem; }
 
-    .personality-intro { font-size: 15px; color: #5a5a5a; line-height: 1.9; max-width: 680px; margin-bottom: 1.2rem; }
-    .personality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; margin-top: 2rem; }
+    .personality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
     .p-card { background: #fff; border-radius: 16px; padding: 1.5rem; border: 1px solid #f0d8e8; }
     .p-card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
     .p-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; }
     .p-card h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; }
     .p-card p { font-size: 13px; color: #7a7a7a; line-height: 1.7; }
 
-    /* GALLERY - Zwei Karten nebeneinander */
-    .gallery-bg { background: #f4eef8; }
-    .gallery-layout { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: start; }
-
-    .gallery-card {
-      width: 340px; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 4px 20px rgba(192,132,160,0.12);
-      position: relative;
-    }
-    .slideshow { position: relative; width: 100%; height: 340px; background: #f0e8f8; overflow: hidden; }
-    .slide {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.6s ease;
-    }
-    .slide.active { opacity: 1; }
-    .slide img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Label über Bild */
-    .card-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(60,30,50,0.7), transparent);
-      padding: 1.5rem 1rem 0.8rem;
-    }
-    .card-tag {
-      display: inline-block; padding: 0.2rem 0.7rem;
-      background: rgba(255,255,255,0.25); color: #fff;
-      border-radius: 50px; font-size: 10px; font-weight: 600;
-      margin-bottom: 0.3rem; letter-spacing: 0.06em;
-      backdrop-filter: blur(4px);
-    }
-    .card-label h3 { font-size: 15px; font-weight: 600; color: #fff; }
-
-    .info-btn {
-      position: absolute; top: 0.8rem; right: 0.8rem;
-      padding: 0.3rem 0.8rem; border-radius: 50px;
-      background: rgba(255,255,255,0.9); border: 1.5px solid #c084a0;
-      cursor: pointer; color: #c084a0;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
-      box-shadow: 0 1px 6px rgba(192,132,160,0.2);
-      transition: background 0.2s;
-      z-index: 10;
-    }
-    .info-btn:hover { background: #fde8f0; }
-
-    .slide-controls {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.5rem 0.8rem; background: #fff;
-    }
-    .slide-btn {
-      background: #f4eef8; border: none; border-radius: 50%;
-      width: 24px; height: 24px; cursor: pointer; font-size: 12px;
-      color: #9a6aaa; display: flex; align-items: center; justify-content: center;
-    }
-    .slide-btn:hover { background: #e8d8f8; }
-    .slide-dots { display: flex; gap: 0.35rem; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #d0b8e8; cursor: pointer; }
-    .dot.active { background: #c084a0; }
-
-    /* MODAL */
-    .modal-overlay {
-      display: none; position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-      z-index: 1000; align-items: center; justify-content: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: #fff; border-radius: 20px; padding: 2.5rem;
-      max-width: 480px; width: 90%; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      animation: modal-in 0.3s ease;
-    }
-    @keyframes modal-in {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: #f4eef8; border: none; border-radius: 50%;
-      width: 32px; height: 32px; cursor: pointer;
-      font-size: 16px; color: #9a6aaa;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-close:hover { background: #e8d8f8; }
-    .modal-tag {
-      display: inline-block; padding: 0.2rem 0.8rem;
-      background: #fde8f0; color: #c084a0;
-      border-radius: 50px; font-size: 11px; font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-    /* MODAL SLIDES */
-    .modal-slides { position: relative; }
-    .modal-slide { display: none; }
-    .modal-slide.active { display: block; }
-    .modal-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 1.2rem;
-    }
-    .modal-nav-btn {
-      background: #f4eef8; border: none; border-radius: 50px;
-      padding: 0.4rem 1rem; cursor: pointer; color: #c084a0;
-      font-size: 13px; font-weight: 500;
-      transition: background 0.2s;
-    }
-    .modal-nav-btn:hover { background: #e8d8f8; }
-    .modal-nav-btn:disabled { opacity: 0.3; cursor: default; }
-    .modal-dots { display: flex; gap: 0.4rem; }
-    .modal-dot { width: 7px; height: 7px; border-radius: 50%; background: #d0b8e8; }
-    .modal-dot.active { background: #c084a0; }
-
     /* SPEZIALISIERUNGEN */
     .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
     .spec-flip { width: 100%; aspect-ratio: 1/1; perspective: 1000px; cursor: pointer; }
-    .spec-flip-inner {
-      position: relative; width: 100%; height: 100%;
-      transition: transform 0.6s; transform-style: preserve-3d;
-    }
+    .spec-flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
     .spec-flip.flipped .spec-flip-inner { transform: rotateY(180deg); }
-    .spec-face {
-      position: absolute; width: 100%; height: 100%;
-      backface-visibility: hidden; border-radius: 20px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 1.5rem; border: 1px solid #f0d8e8;
-    }
+    .spec-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; border: 1px solid #f0d8e8; }
     .spec-front { background: #fff; }
     .spec-front .spec-icon { font-size: 56px; margin-bottom: 0.8rem; }
     .spec-front .spec-hint { font-size: 11px; color: #c084a0; margin-top: 0.6rem; font-style: italic; }
@@ -197,50 +60,81 @@
     .spec-back h3 { font-size: 15px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.6rem; text-align: center; }
     .spec-back p { font-size: 13px; color: #6a6a6a; line-height: 1.6; }
     .spec-icon-marketing { animation: wiggle 2.4s ease-in-out infinite; }
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(0deg); }
-      20% { transform: rotate(-12deg); }
-      40% { transform: rotate(10deg); }
-      60% { transform: rotate(-6deg); }
-      80% { transform: rotate(4deg); }
-    }
+    @keyframes wiggle { 0%,100%{transform:rotate(0)} 20%{transform:rotate(-12deg)} 40%{transform:rotate(10deg)} 60%{transform:rotate(-6deg)} 80%{transform:rotate(4deg)} }
     .spec-icon-hr { animation: compass-spin 3s ease-in-out infinite; }
-    @keyframes compass-spin {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(15deg); }
-      75% { transform: rotate(-15deg); }
-    }
+    @keyframes compass-spin { 0%,100%{transform:rotate(0)} 25%{transform:rotate(15deg)} 75%{transform:rotate(-15deg)} }
 
-    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-    .skill-tag { padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 13px; font-weight: 500; }
-    .tag-purple { background: #ede4f7; color: #7c4fa0; }
-    .tag-pink   { background: #fde8f0; color: #c06090; }
-    .tag-blue   { background: #e4eef8; color: #4a78b0; }
-    .tag-mint   { background: #dff4ee; color: #2d8a6a; }
-    .tag-peach  { background: #fdeee4; color: #c07040; }
+    /* GALLERY */
+    .gallery-bg { background: #f4eef8; }
+    .gallery-layout { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: start; }
+    .gallery-card { width: 340px; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(192,132,160,0.12); position: relative; }
+    .slideshow { position: relative; width: 100%; height: 340px; background: #f0e8f8; overflow: hidden; }
+    .slide { position: absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.6s ease; }
+    .slide.active { opacity: 1; }
+    .slide img { width:100%; height:100%; object-fit:cover; }
+    .card-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(60,30,50,0.7), transparent); padding:1.5rem 1rem 0.8rem; }
+    .card-tag { display:inline-block; padding:0.2rem 0.7rem; background:rgba(255,255,255,0.25); color:#fff; border-radius:50px; font-size:10px; font-weight:600; margin-bottom:0.3rem; letter-spacing:0.06em; }
+    .card-label h3 { font-size:15px; font-weight:600; color:#fff; }
+    .info-btn { position:absolute; top:0.8rem; right:0.8rem; padding:0.3rem 0.8rem; border-radius:50px; background:rgba(255,255,255,0.9); border:1.5px solid #c084a0; cursor:pointer; color:#c084a0; font-size:11px; font-weight:600; letter-spacing:0.05em; box-shadow:0 1px 6px rgba(192,132,160,0.2); transition:background 0.2s; z-index:10; }
+    .info-btn:hover { background: #fde8f0; }
+    .slide-controls { display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.8rem; background:#fff; }
+    .slide-btn { background:#f4eef8; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; font-size:12px; color:#9a6aaa; display:flex; align-items:center; justify-content:center; }
+    .slide-btn:hover { background: #e8d8f8; }
+    .slide-dots { display:flex; gap:0.35rem; }
+    .dot { width:6px; height:6px; border-radius:50%; background:#d0b8e8; cursor:pointer; }
+    .dot.active { background: #c084a0; }
 
-    .values-bg { background: linear-gradient(160deg, #fde8f0 0%, #e8f0fd 100%); }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .value-card { background: #fff; border-radius: 14px; padding: 1.2rem; border: 1px solid #e8d8f0; text-align: center; }
-    .value-card .val-icon { font-size: 28px; margin-bottom: 0.6rem; }
-    .value-card h3 { font-size: 14px; font-weight: 600; color: #3a3a3a; margin-bottom: 0.3rem; }
-    .value-card p { font-size: 12px; color: #8a8a8a; line-height: 1.5; }
+    /* MODAL */
+    .modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:#fff; border-radius:20px; padding:2rem; max-width:500px; width:90%; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.2); animation:modal-in 0.3s ease; max-height:90vh; overflow-y:auto; }
+    @keyframes modal-in { from{transform:scale(0.9);opacity:0} to{transform:scale(1);opacity:1} }
+    .modal-close { position:absolute; top:1rem; right:1rem; background:#f4eef8; border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; font-size:16px; color:#9a6aaa; display:flex; align-items:center; justify-content:center; }
+    .modal-close:hover { background: #e8d8f8; }
+    .modal-tag { display:inline-block; padding:0.2rem 0.8rem; background:#fde8f0; color:#c084a0; border-radius:50px; font-size:11px; font-weight:600; margin-bottom:0.8rem; }
+    .modal-title { font-size:20px; font-weight:600; color:#3a3a3a; margin-bottom:1rem; }
 
-    .contact-box { background: #fff; border-radius: 16px; padding: 2.5rem; border: 1px solid #e0d0ec; max-width: 500px; margin: 0 auto; text-align: center; }
-    .contact-box p { font-size: 15px; color: #6a6a6a; margin-bottom: 1.4rem; line-height: 1.7; }
-    .social-row { display: flex; justify-content: center; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
-    .social-btn { padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 13px; border: 1px solid #d0c0e0; color: #7a5a90; background: transparent; text-decoration: none; transition: background 0.2s; display: inline-block; }
-    .social-btn:hover { background: #f4eef8; }
+    /* Modal innere Slides */
+    .m-slide { display:none; }
+    .m-slide.active { display:block; }
+    .m-slide p { font-size:14px; color:#6a6a6a; line-height:1.8; margin-bottom:0.8rem; }
+    .m-slide img { width:100%; border-radius:12px; object-fit:contain; }
 
-    footer { text-align: center; padding: 1.5rem; font-size: 12px; color: #aaa; border-top: 1px solid #f0d8cc; background: #fff8f4; }
+    .modal-nav { display:flex; justify-content:space-between; align-items:center; margin-top:1.2rem; }
+    .m-nav-btn { background:#f4eef8; border:none; border-radius:50px; padding:0.4rem 1rem; cursor:pointer; color:#c084a0; font-size:13px; font-weight:500; transition:background 0.2s; }
+    .m-nav-btn:hover { background:#e8d8f8; }
+    .m-nav-btn:disabled { opacity:0.3; cursor:default; }
+    .m-dots { display:flex; gap:0.4rem; align-items:center; }
+    .m-dot { width:7px; height:7px; border-radius:50%; background:#d0b8e8; }
+    .m-dot.active { background:#c084a0; }
 
-    @media (max-width: 700px) {
-      .hero { flex-direction: column; padding: 2rem 1.2rem; }
-      .hero-img { width: 100%; height: 260px; }
-      nav { padding: 1rem 1.2rem; }
-      section { padding: 2rem 1.2rem; }
-      .personality-grid, .values-grid { grid-template-columns: 1fr; }
-      .hero-text h1 { font-size: 26px; }
+    .skills-wrap { display:flex; flex-wrap:wrap; gap:0.6rem; }
+    .skill-tag { padding:0.45rem 1.1rem; border-radius:50px; font-size:13px; font-weight:500; }
+    .tag-purple { background:#ede4f7; color:#7c4fa0; }
+    .tag-pink { background:#fde8f0; color:#c06090; }
+    .tag-blue { background:#e4eef8; color:#4a78b0; }
+    .tag-mint { background:#dff4ee; color:#2d8a6a; }
+    .tag-peach { background:#fdeee4; color:#c07040; }
+
+    .values-bg { background:linear-gradient(160deg,#fde8f0 0%,#e8f0fd 100%); }
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .value-card { background:#fff; border-radius:14px; padding:1.2rem; border:1px solid #e8d8f0; text-align:center; }
+    .value-card .val-icon { font-size:28px; margin-bottom:0.6rem; }
+    .value-card h3 { font-size:14px; font-weight:600; color:#3a3a3a; margin-bottom:0.3rem; }
+    .value-card p { font-size:12px; color:#8a8a8a; line-height:1.5; }
+
+    .contact-box { background:#fff; border-radius:16px; padding:2.5rem; border:1px solid #e0d0ec; max-width:500px; margin:0 auto; text-align:center; }
+    .contact-box p { font-size:15px; color:#6a6a6a; margin-bottom:1.4rem; line-height:1.7; }
+
+    footer { text-align:center; padding:1.5rem; font-size:12px; color:#aaa; border-top:1px solid #f0d8cc; background:#fff8f4; }
+
+    @media (max-width:700px) {
+      .hero { flex-direction:column; padding:2rem 1.2rem; }
+      .hero-img { width:100%; height:260px; }
+      nav { padding:1rem 1.2rem; }
+      section { padding:2rem 1.2rem; }
+      .personality-grid, .values-grid { grid-template-columns:1fr; }
+      .hero-text h1 { font-size:26px; }
     }
   </style>
 </head>
@@ -256,18 +150,12 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="hero-img">
-      <img src="reise1.jpg" alt="Jessica Juhnke">
-    </div>
+    <div class="hero-img"><img src="reise1.jpg" alt="Jessica Juhnke"></div>
     <div class="hero-text">
       <h1>Jessica Juhnke</h1>
       <p class="job-title">Marketing & Kommunikation</p>
-      <p class="tagline">
-        Ich bin eine neugierige, kommunikative Persönlichkeit, die mit Energie und frischen Ideen an jede Aufgabe geht –
-        leidenschaftliche Reisende, Teamplayerin und kreative Denkerin, die Ideen in Wirkung verwandelt.
-      </p>
+      <p class="tagline">Ich bin eine neugierige, kommunikative Persönlichkeit, die mit Energie und frischen Ideen an jede Aufgabe geht – leidenschaftliche Reisende, Teamplayerin und kreative Denkerin, die Ideen in Wirkung verwandelt.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">Kontakt aufnehmen</a>
         <a href="#personality" class="btn-outline">Mehr über mich</a>
@@ -275,47 +163,33 @@
     </div>
   </div>
 
-  <!-- PERSÖNLICHKEIT -->
   <section id="personality">
     <p class="section-label">Wer ich bin</p>
     <p class="section-title">Meine Persönlichkeit</p>
     <div class="personality-grid">
       <div class="p-card">
-        <div class="p-card-top">
-          <div class="p-icon" style="background:#fde8f0;">✈️</div>
-          <h3>Weltoffenheit</h3>
-        </div>
+        <div class="p-card-top"><div class="p-icon" style="background:#fde8f0;">✈️</div><h3>Weltoffenheit</h3></div>
         <p>Reisen ist für mich mehr als Urlaub – es ist eine Lebenshaltung. Ich bin neugierig auf andere Kulturen, Perspektiven und Denkweisen. Diese Offenheit macht mich flexibler, empathischer und kreativer in meiner Arbeit.</p>
       </div>
       <div class="p-card">
-        <div class="p-card-top">
-          <div class="p-icon" style="background:#e8f0fd;">🤝</div>
-          <h3>Teamgeist</h3>
-        </div>
+        <div class="p-card-top"><div class="p-icon" style="background:#e8f0fd;">🤝</div><h3>Teamgeist</h3></div>
         <p>In einem guten Team wachse ich über mich hinaus. Ich höre zu, bringe mich ein und halte zusammen – auch wenn es mal herausfordernd wird. Gemeinsam erzielte Ergebnisse bedeuten mir mehr als Einzelerfolge.</p>
       </div>
       <div class="p-card">
-        <div class="p-card-top">
-          <div class="p-icon" style="background:#dff4ee;">💬</div>
-          <h3>Kommunikationsstärke</h3>
-        </div>
+        <div class="p-card-top"><div class="p-icon" style="background:#dff4ee;">💬</div><h3>Kommunikationsstärke</h3></div>
         <p>Ich finde die richtigen Worte – für Texte, Präsentationen und Gespräche. Mir liegt es am Herzen, klar und ehrlich zu kommunizieren, Brücken zu bauen und Menschen zu begeistern.</p>
       </div>
       <div class="p-card">
-        <div class="p-card-top">
-          <div class="p-icon" style="background:#f4eef8;">⚡</div>
-          <h3>Eigenverantwortung</h3>
-        </div>
+        <div class="p-card-top"><div class="p-icon" style="background:#f4eef8;">⚡</div><h3>Eigenverantwortung</h3></div>
         <p>Ich warte nicht darauf, dass Dinge passieren – ich gestalte sie aktiv. Selbstständiges Arbeiten, strukturiertes Denken und Verlässlichkeit sind für mich keine Buzzwords, sondern gelebte Werte.</p>
       </div>
     </div>
   </section>
 
-  <!-- SPEZIALISIERUNGEN -->
-  <section style="background: #fff8f4;">
+  <section style="background:#fff8f4;">
     <p class="section-label">Mein Studienfokus</p>
     <p class="section-title">Meine Spezialisierungen</p>
-    <p style="font-size:13px; color:#9a8a8a; margin-bottom:1.5rem; font-style:italic; text-align:center;">Klick auf ein Icon, um mehr zu erfahren ✨</p>
+    <p style="font-size:13px;color:#9a8a8a;margin-bottom:1.5rem;font-style:italic;text-align:center;">Klick auf ein Icon, um mehr zu erfahren ✨</p>
     <div class="spec-grid">
       <div class="spec-flip" onclick="this.classList.toggle('flipped')">
         <div class="spec-flip-inner">
@@ -344,15 +218,14 @@
     </div>
   </section>
 
-  <!-- EINBLICKE -->
   <section id="gallery" class="gallery-bg">
     <p class="section-label">Einblicke</p>
     <p class="section-title">Meine Welt in Bildern</p>
     <div class="gallery-layout">
 
-      <!-- REISEN KARTE -->
+      <!-- REISEN -->
       <div class="gallery-card">
-        <div class="slideshow">
+        <div class="slideshow" id="reise-show">
           <div class="slide active"><img src="reise4.jpg.jpg" alt="Reise 1"></div>
           <div class="slide"><img src="reise5.jpg.jpg" alt="Reise 2"></div>
           <div class="slide"><img src="reise2.jpg" alt="Reise 3"></div>
@@ -363,7 +236,7 @@
         </div>
         <div class="slide-controls">
           <button class="slide-btn" onclick="changeSlide(-1)">‹</button>
-          <div class="slide-dots">
+          <div class="slide-dots" id="reise-dots">
             <div class="dot active" onclick="goToSlide(0)"></div>
             <div class="dot" onclick="goToSlide(1)"></div>
             <div class="dot" onclick="goToSlide(2)"></div>
@@ -372,9 +245,9 @@
         </div>
       </div>
 
-      <!-- UNIPROJEKTE KARTE -->
+      <!-- UNIPROJEKTE -->
       <div class="gallery-card">
-        <div class="slideshow" id="uni-slideshow">
+        <div class="slideshow" id="uni-show">
           <div class="slide active"><img src="Projekt5.jpg" alt="Projekt 1"></div>
           <div class="slide"><img src="Projekt4.jpg" alt="Projekt 2"></div>
           <div class="slide"><img src="Projekt7.jpg" alt="Projekt 3"></div>
@@ -383,7 +256,7 @@
             <h3>Pure&amp;Positive 🎓</h3>
           </div>
         </div>
-        <button class="info-btn" onclick="document.getElementById('uni-modal').classList.add('active')">Details</button>
+        <button class="info-btn" onclick="openModal()">Details</button>
         <div class="slide-controls">
           <button class="slide-btn" onclick="changeUniSlide(-1)">‹</button>
           <div class="slide-dots" id="uni-dots">
@@ -395,35 +268,35 @@
         </div>
       </div>
 
-      <!-- MODAL -->
-      <div class="modal-overlay" id="uni-modal" onclick="closeModal()">
-        <div class="modal" onclick="event.stopPropagation()">
-          <button class="modal-close" onclick="closeModal()">✕</button>
-          <span class="modal-tag">Uniprojekt</span>
-          <h3 style="font-size:20px; font-weight:600; color:#3a3a3a; margin-bottom:1rem;">Pure&amp;Positive</h3>
-          <div class="modal-slides">
-            <div class="modal-slide active">
-              <p style="font-size:14px; color:#6a6a6a; line-height:1.8; margin-bottom:0.8rem;">In unserer Vertiefung Marketing haben wir für das Unternehmen Pure&amp;Positive ein Werbeplakat für ein imaginäres Festival erstellt. Gemeinsam in Fünfer-Gruppen hatten wir den Auftrag mithilfe von Canva und eigenen Ideen ein ansprechendes Plakat zu erstellen.</p>
-              <p style="font-size:14px; color:#6a6a6a; line-height:1.8; margin-bottom:0.8rem;">Die Gründerinnen hatten uns einen Einblick in ihr Unternehmen gegeben und uns mitgeteilt wie das Festival aufgebaut ist. Dadurch konnten wir ein Plakat erstellen, was zum Unternehmen gepasst hat.</p>
-              <p style="font-size:14px; color:#6a6a6a; line-height:1.8;">Schlussendlich mussten wir unsere Leistung vortragen und erhielten positive Rezensionen von den Gründerinnen.</p>
-            </div>
-            <div class="modal-slide">
-              <img src="Projekt6.jpg" alt="Pure&Positive Plakat" style="width:100%; border-radius:12px; object-fit:contain; max-height:340px;">
-            </div>
-          </div>
-          <div class="modal-nav">
-            <button class="modal-nav-btn" id="modal-prev" onclick="changeModalSlide(-1)" disabled>← Zurück</button>
-            <div class="modal-dots">
-              <div class="modal-dot active" id="mdot-0"></div>
-              <div class="modal-dot" id="mdot-1"></div>
-            </div>
-            <button class="modal-nav-btn" id="modal-next" onclick="changeModalSlide(1)">Weiter →</button>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="uni-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <span class="modal-tag">Uniprojekt</span>
+      <p class="modal-title">Pure&amp;Positive</p>
+
+      <div class="m-slide active" id="mslide-0">
+        <p>In unserer Vertiefung Marketing haben wir für das Unternehmen Pure&amp;Positive ein Werbeplakat für ein imaginäres Festival erstellt. Gemeinsam in Fünfer-Gruppen hatten wir den Auftrag mithilfe von Canva und eigenen Ideen ein ansprechendes Plakat zu erstellen.</p>
+        <p>Die Gründerinnen hatten uns einen Einblick in ihr Unternehmen gegeben und uns mitgeteilt wie das Festival aufgebaut ist. Dadurch konnten wir ein Plakat erstellen, was zum Unternehmen gepasst hat.</p>
+        <p>Schlussendlich mussten wir unsere Leistung vortragen und erhielten positive Rezensionen von den Gründerinnen.</p>
+      </div>
+      <div class="m-slide" id="mslide-1">
+        <img src="Projekt6.jpg" alt="Pure&Positive Plakat">
+      </div>
+
+      <div class="modal-nav">
+        <button class="m-nav-btn" id="m-prev" onclick="changeModalSlide(-1)" disabled>← Zurück</button>
+        <div class="m-dots">
+          <div class="m-dot active" id="mdot-0"></div>
+          <div class="m-dot" id="mdot-1"></div>
+        </div>
+        <button class="m-nav-btn" id="m-next" onclick="changeModalSlide(1)">Weiter →</button>
+      </div>
+    </div>
+  </div>
 
   <section id="skills">
     <p class="section-label">Was ich kann</p>
@@ -442,25 +315,13 @@
     <p class="section-label">Was mich antreibt</p>
     <p class="section-title">Meine Werte</p>
     <div class="values-grid">
-      <div class="value-card">
-        <div class="val-icon">🌱</div>
-        <h3>Neugier</h3>
-        <p>Ich lerne täglich dazu und suche aktiv nach neuen Perspektiven.</p>
-      </div>
-      <div class="value-card">
-        <div class="val-icon">💡</div>
-        <h3>Kreativität</h3>
-        <p>Ich denke gerne um die Ecke und finde ungewöhnliche Lösungen.</p>
-      </div>
-      <div class="value-card">
-        <div class="val-icon">🤍</div>
-        <h3>Aufrichtigkeit</h3>
-        <p>Ehrlichkeit und Verlässlichkeit sind die Basis jeder guten Zusammenarbeit.</p>
-      </div>
+      <div class="value-card"><div class="val-icon">🌱</div><h3>Neugier</h3><p>Ich lerne täglich dazu und suche aktiv nach neuen Perspektiven.</p></div>
+      <div class="value-card"><div class="val-icon">💡</div><h3>Kreativität</h3><p>Ich denke gerne um die Ecke und finde ungewöhnliche Lösungen.</p></div>
+      <div class="value-card"><div class="val-icon">🤍</div><h3>Aufrichtigkeit</h3><p>Ehrlichkeit und Verlässlichkeit sind die Basis jeder guten Zusammenarbeit.</p></div>
     </div>
   </section>
 
-  <section id="contact" style="background: linear-gradient(135deg, #fde8f0 0%, #e8f0fd 100%);">
+  <section id="contact" style="background:linear-gradient(135deg,#fde8f0 0%,#e8f0fd 100%);">
     <p class="section-label">Schreib mir</p>
     <p class="section-title" style="text-align:center;">Kontakt</p>
     <div class="contact-box">
@@ -472,18 +333,55 @@
   <footer>© 2026 Jessica Juhnke · Alle Rechte vorbehalten</footer>
 
   <script>
+    // Reise Slideshow
     let cur = 0;
-    const slides = document.querySelectorAll('.slideshow .slide');
-    const dots = document.querySelectorAll('.slide-dots .dot');
+    const rSlides = document.querySelectorAll('#reise-show .slide');
+    const rDots = document.querySelectorAll('#reise-dots .dot');
     function goToSlide(n) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
+      rSlides[cur].classList.remove('active'); rDots[cur].classList.remove('active');
+      cur = (n + rSlides.length) % rSlides.length;
+      rSlides[cur].classList.add('active'); rDots[cur].classList.add('active');
     }
-    function changeSlide(dir) { goToSlide(cur + dir); }
+    function changeSlide(d) { goToSlide(cur + d); }
     setInterval(() => changeSlide(1), 4000);
+
+    // Uni Slideshow
+    let curU = 0;
+    const uSlides = document.querySelectorAll('#uni-show .slide');
+    const uDots = document.querySelectorAll('#uni-dots .dot');
+    function goToUniSlide(n) {
+      uSlides[curU].classList.remove('active'); uDots[curU].classList.remove('active');
+      curU = (n + uSlides.length) % uSlides.length;
+      uSlides[curU].classList.add('active'); uDots[curU].classList.add('active');
+    }
+    function changeUniSlide(d) { goToUniSlide(curU + d); }
+    setInterval(() => changeUniSlide(1), 5000);
+
+    // Modal
+    let curM = 0;
+    function openModal() {
+      curM = 0;
+      document.querySelectorAll('.m-slide').forEach((s,i) => s.classList.toggle('active', i===0));
+      document.querySelectorAll('.m-dot').forEach((d,i) => d.classList.toggle('active', i===0));
+      document.getElementById('m-prev').disabled = true;
+      document.getElementById('m-next').disabled = false;
+      document.getElementById('uni-modal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('uni-modal').classList.remove('open');
+    }
+    function changeModalSlide(d) {
+      const mSlides = document.querySelectorAll('.m-slide');
+      const mDots = document.querySelectorAll('.m-dot');
+      mSlides[curM].classList.remove('active'); mDots[curM].classList.remove('active');
+      curM = Math.max(0, Math.min(mSlides.length - 1, curM + d));
+      mSlides[curM].classList.add('active'); mDots[curM].classList.add('active');
+      document.getElementById('m-prev').disabled = curM === 0;
+      document.getElementById('m-next').disabled = curM === mSlides.length - 1;
+    }
+    document.getElementById('uni-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
   </script>
 
 </body>
